@@ -1,0 +1,3 @@
+ AREA LOADER_Bin, CODE, READONLY
+ INCBIN ../../2_Images_Loader/MDK-ARM/STM32H7B3I_DISCO/Exe/Loader.bin
+ END

@@ -1,0 +1,10 @@
+/*###ICF### Set of symbols used in SE and SB_SFU projects ****/
+
+/* Slots Regions must be aligned on 2048 bytes (0x800) */
+
+/* slot 0 region ( 32 Kbytes) */
+define exported symbol  __ICFEDIT_region_SLOT_0_start__= 0x08008000;
+define exported symbol  __ICFEDIT_region_SLOT_0_end__  = 0x0800FFFF;
+
+/* firmware images regions definition */
+define region SLOT_0_region = mem:[from __ICFEDIT_region_SLOT_0_start__ to __ICFEDIT_region_SLOT_0_end__];

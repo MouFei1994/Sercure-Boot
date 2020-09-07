@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for STM32 Key Management Services</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<div class="card fluid">
+<div class="sectione dark">
+<center>
+<h1 id="release-notes-for-stm32-key-management-services"><small>Release Notes for</small> STM32 Key Management Services</h1>
+<p>Copyright © 2019 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo.png" alt="ST logo" /></a>
+</center>
+</div>
+</div>
+<h1 id="license">License</h1>
+<p>This software component is licensed by ST under Ultimate Liberty license SLA0044, the “License”;</p>
+<p>You may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at: <a href="http://www.st.com/SLA0044">SLA0044</a></p>
+<h1 id="purpose">Purpose</h1>
+<p>Key Management Services (KMS) provides cryptographic services through <a href="http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">the standard PKCS#11 APIs (developed by OASIS)</a> allowing to abstract the key value to the caller (using object ID and not directly the key value). KMS can be executed inside a protected/isolated environment in order to ensure that key value can’t be accessed by an unauthorized code running outside the protected/isolated environment.</p>
+<p>KMS manages 3 types of keys:<br />
+</p>
+<ul>
+<li>Static Embedded keys :<br />
+
+<ul>
+<li>Predefined keys embedded within the code that can’t be modified<br />
+</li>
+</ul></li>
+<li>Updatable keys with Static ID :<br />
+
+<ul>
+<li>Keys IDs are predefined in the system<br />
+</li>
+<li>Key(s) can be injected or updated in a NVM storage via a secure procedure usingStatic Embedded Keys(authenticity check, data integrity check and data decryption)<br />
+</li>
+<li>Key can’t be deleted<br />
+</li>
+</ul></li>
+<li>Updatable keys with dynamic ID :<br />
+
+<ul>
+<li>Keys IDs are defined when keys are created using KMS services<br />
+</li>
+<li>Key value can be updated using KMS services<br />
+</li>
+<li>Key can be deleted</li>
+</ul></li>
+</ul>
+<p>KMS only supports a subset of PKCS#11 APIs:<br />
+</p>
+<ul>
+<li>Object management functions: creation / update / deletion<br />
+</li>
+<li>AES Encrypt &amp; Decrypt functions<br />
+</li>
+<li>SHA Digest functions<br />
+</li>
+<li>RSA and ECDSA Sign / Verify functions</li>
+</ul>
+<p><br />
+The figure below shows the overall KMS architecture.</p>
+<figure>
+<img src="_htmresc/KMS.png" alt="KMS overview" /><figcaption>KMS overview</figcaption>
+</figure>
+<p><br />
+For more details, refer to <a href="https://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00414687.pdf">UM2262</a> : Getting started with X-CUBE-SBSFU expansion package, Chapter 4.</p>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section1" checked aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">v1.0.0 / 13-July-2019</label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<h3 id="first-official-release">First official release</h3>
+<p>Official delivery of Key Management Services for STM32 series, compliant with PKCS#11 APIs from OASIS.</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>None</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on STM32 Microcontrollers, visit: [<a href="http://www.st.com/STM32">www.st.com/stm32</a>]</p>
+<em>This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.</em>
+</footer>
+</body>
+</html>

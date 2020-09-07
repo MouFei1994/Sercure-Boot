@@ -1,0 +1,3 @@
+ AREA SE_CORE_Bin, CODE, READONLY
+ INCBIN ../../1_Image_SECoreBin/MDK-ARM/NUCLEO-G031K8\Exe/SECoreBin.bin
+ END

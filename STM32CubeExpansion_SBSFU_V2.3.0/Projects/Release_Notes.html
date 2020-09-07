@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for Projects of X-CUBE-SBSFU Expansion package</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../_htmresc/mini-st.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<div class="card fluid">
+<div class="sectione dark">
+<center>
+<h1 id="release-notes-for-projects-of-x-cube-sbsfu-expansion-package"><small>Release Notes for</small> <strong>Projects of X-CUBE-SBSFU Expansion package</strong></h1>
+<p>Copyright © 2017 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="../_htmresc/st_logo.png" alt="ST logo" /></a>
+</center>
+</div>
+</div>
+<h1 id="license">License</h1>
+<p>The projects covered by these release notes are delivered under different licenses. Details of applicable license for each project are provided in the table of the "Contents" section below.</p>
+<h1 id="purpose">Purpose</h1>
+<p>The package includes different sample applications to provide a complete SBSFU solution:</p>
+<ul>
+<li><p><strong>SECoreBin application</strong>: provides a binary including all the “trusted” code</p></li>
+<li><p><strong>SBSFU application</strong>:<br />
+– Secure Boot (Root of Trust)<br />
+– Local download via UART Virtual COM<br />
+– FW installation management<br />
+</p></li>
+<li><p><strong>User application</strong>:<br />
+– Downloads a new use firmware in dual-image mode of operation<br />
+– Provides examples testing protection mechanisms<br />
+</p></li>
+</ul>
+<p>In the X-CUBE-SBSFU Expansion package, the projects are organized in a sequential scheme based on the following levels:</p>
+<ul>
+<li>Boards : Hardware platform</li>
+<li>Project Category: Applications</li>
+<li>Project Class</li>
+<li>Project Subclass</li>
+</ul>
+<p>The Project Class refers to the configuration of the SBSFU solution :</p>
+<ul>
+<li>Dual image configuration: <strong>2_Images</strong> folder<br />
+</li>
+<li>Dual image on external flash configuration: <strong>2_Images_ExtFlash</strong> folder<br />
+</li>
+<li>Single image configuration: <strong>1_Image</strong> folder<br />
+</li>
+<li>mbed TLS cryptographic services (Open Source Crypto) configuration (<strong>2_Images_OSC</strong> / <strong>1_Image_OSC</strong> folders)<br />
+</li>
+<li>STSAFE-A configuration: <strong>2_Images_STSAFE</strong> folder<br />
+</li>
+<li>KMS configuration : <strong>2_Images_KMS</strong> folder<br />
+</li>
+</ul>
+<p>The Project Subclass refers to one of the projects part of the complete SBSFU solution (SECoreBin, SBSFU, UserApp, Loader, KMS_Blob).</p>
+<p>X-CUBE-SBSFU is provided as reference code to demonstrate state-of-the-art usage of the STM32 security protection mechanisms. It is a starting point for OEMs to develop their own SBSFU as a function of their product security requirement levels.</p>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section5" checked aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V2.3.0 / 17-January-2020</label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<ul>
+<li><p>Add the support of <strong>STM32H7B3I-DK and NUCLEO-G031K8</strong> boards.</p></li>
+<li><p>Specific SBSFU application introduced for <strong>STM32H7B3I-DK Discovery Kit supporting external flash and OTFDEC</strong>: active image is stored in the external memory and remains encrypted to ensure confidentiality of the firmware. On the fly decryption is performed by OTFDEC IP during user application execution from external flash.</p></li>
+<li><p><strong>Double-bit ECC improvments</strong> : Changes in management of exceptions for all STM32 series supporting Flash ECC error (applicable to STM32L4, STM32G0, STM32G4, STM32H7 and STM32WB series): fix on double ecc error management (problem could be reproduced in erase/write operation in Flash, during a power off or a reset)</p></li>
+<li><p><strong>Slot0 Header not contiguous with FW image</strong> feature added and deployed in STM32H7B3I-DK External flash variant</p></li>
+<li><p><strong>Complete header is now integrated into UserApp.sfb file</strong>. No more padding required during the firmware image download</p></li>
+<li><p><strong>Change SRAM define</strong> (SRAM1) to comply with STM32 diversity (SRAM1, SRAM2, SRAM3)</p></li>
+<li><p><strong>Add 1_image variant for P-NUCLEO-WB55.Nucleo board</strong>: this new example is based on standalone loader, to be easily replaced by BLE loader. Decrypt in place function added (DecryptImageInSlot0 ) and instalation process updated with a new decrypt in place function</p></li>
+<li><p><strong>Add NUCLEO-G031K8 board</strong>: debug prompts are deactivated, and example is restricted to AES cryptographic scheme</p></li>
+<li><p>DMAMUX registers are now restricted to Privileged software on STM32G0 series</p></li>
+<li><p>Time constant comparisons added in SE_CoreBin</p></li>
+<li><p>Update of Pre-Build and Post build scripts</p></li>
+<li><p>Update MPU configuration issue of User Application with 2 Images on P-NUCLEO-WB55.Nucleo board</p></li>
+</ul>
+<h2 id="contents">Contents</h2>
+<table>
+<caption>Projects :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/B-L475E-IOT01A/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications/STSAFE_Provisioning</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0088">SLA0088</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications/2_Images_STSAFE/STSAFE_Provisioning</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-G031K8</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G031K8/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-G071RB</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G071RB/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-G474RE</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G474RE/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-H753ZI</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-H753ZI/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L073RZ</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L073RZ/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L152RE</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L152RE/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L432KC/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L476RG/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P-NUCLEO-WB55.Nucleo</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/P-NUCLEO-WB55.Nucleo/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F413H-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F413H-Discovery/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F769I-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F769I-Discovery/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32H7B3I-DK</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.3.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32H7B3I-DK/Applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>Microsoft Windows has a <a href="https://docs.microsoft.com/fr-fr/windows/desktop/FileIO/naming-a-file#maxpath">limitation</a> whereby paths to files and directories can’t be longer than 256characters. Paths to files exceeding that limits cause tools (e.g. compilers, shell scripts) to fail reading from or writing to such files. As a workaround, it’s advised to use the subst.exe command from within a command prompt to set up a local drive out of an existing directory on the hard drive, such as:</p>
+<pre><code>C:\&gt; subst X:&lt;PATH_TO_CUBEFW&gt;\STM32CubeExpansion_SBSFU_Vx.y.z</code></pre>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.34.2 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.27.1.0 + ST-Link</li>
+<li>STM32CubeIDE v1.2.0</li>
+<li>System Workbench for STM32 (SW4STM32) toolchain V2.9 + ST-Link</li>
+</ul>
+<h2 id="supported-boards">Supported Boards</h2>
+<p>Examples have been tested with STMicroelectronics boards listed in following table ; to port examples to any products of a supported STM32 series, please refer to <a href="https://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/DM00414677.pdf">AN5056</a> , Integration guide for the X-CUBE-SBSFU STM32Cube Expansion Package.</p>
+<table>
+<caption>Supported Boards :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A board</td>
+<td style="text-align: left;">MB1297 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P-NUCLEO-WB55.Nucleo kit</td>
+<td style="text-align: left;">MB1355 C-02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F413H-Discovery board</td>
+<td style="text-align: left;">MB1274 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F769I-DISCO board</td>
+<td style="text-align: left;">MB1225 B-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32G071RB Nucleo kit</td>
+<td style="text-align: left;">MB1360 B-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32G031K8 Nucleo kit</td>
+<td style="text-align: left;">MB1455 C-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32G474RE Nucleo kit</td>
+<td style="text-align: left;">MB1367 B-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32H753ZI Nucleo kit</td>
+<td style="text-align: left;">MB1364 A-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32H7B3I-Discovery board</td>
+<td style="text-align: left;">MB1332 B-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L073RZ Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L152RE Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L432KC Nucleo kit</td>
+<td style="text-align: left;">MB1180 C-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L476RG Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L496G Discovery board</td>
+<td style="text-align: left;">MB1261 B-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section4" checked aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V2.2.0 / 13-July-2019</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
+<p>Add the support of <strong>NUCLEO-L073RZ, NUCLEO-G474RE, NUCLEO-H753ZI, NUCLEO-L152RE, P-NUCLEO-WB55.Nucleo</strong> boards.</p>
+<p>Add the support of <strong>STM32L4 combined with STSAFE-A100</strong> boards.</p>
+<p>Add support of mbed TLS cryptographic services (Open Source Crypto) for <strong>STM32F413H-Discovery and  STM32F769I-Discovery boards</strong>.</p>
+<p><strong>Integration of STSAFE-A middleware</strong>. Example provided on the B-L475E-IOT01A board.</p>
+<p><strong>Integration of KMS middleware</strong>. Example provided on the B-L475E-IOT01A board.</p>
+<p>Add a standalone Loader project implementing the firmware download feature (over Ymodem protocol) in order to make easier the integration of over the air download capability (BLE protocol for STM32WB Series). Example provided on the P-NUCLEO-WB55.Nucleo board.</p>
+<h2 id="contents-1">Contents</h2>
+<table>
+<caption>Projects :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/B-L475E-IOT01A/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications/STSAFE_Provisioning</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0088">SLA0088</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications/2_Images_STSAFE/STSAFE_Provisioning</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-G071RB</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G071RB/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-G474RE</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G474RE/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-H753ZI</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-H753ZI/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L073RZ</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L073RZ/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L152RE</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L152RE/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L432KC/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L476RG/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">P-NUCLEO-WB55.Nucleo</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/P-NUCLEO-WB55.Nucleo/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F413H-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F413H-Discovery/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F769I-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.2.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F769I-Discovery/Applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations-1">Known Limitations</h2>
+<p>Microsoft Windows has a <a href="https://docs.microsoft.com/fr-fr/windows/desktop/FileIO/naming-a-file#maxpath">limitation</a> whereby paths to files and directories can’t be longer than 256characters. Paths to files exceeding that limits cause tools (e.g. compilers, shell scripts) to fail reading from or writing to such files. As a workaround, it’s advised to use the subst.exe command from within a command prompt to set up a local drive out of an existing directory on the hard drive, such as:</p>
+<pre><code>C:\&gt; subst X:&lt;PATH_TO_CUBEFW&gt;\STM32CubeExpansion_SBSFU_Vx.y.z</code></pre>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.30.2 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.26 + ST-Link</li>
+<li>System Workbench for STM32 (SW4STM32) toolchain V2.9 + ST-Link</li>
+</ul>
+<h2 id="supported-boards-1">Supported Boards</h2>
+<p>Examples have been tested with STMicroelectronics boards listed in following table ; to port examples to any products of a supported STM32 series, please refer to <a href="https://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/DM00414677.pdf">AN5056</a> , Integration guide for the X-CUBE-SBSFU STM32Cube Expansion Package.</p>
+<table>
+<caption>Supported Boards :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A board</td>
+<td style="text-align: left;">MB1297 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P-NUCLEO-WB55.Nucleo kit</td>
+<td style="text-align: left;">MB1355 C-02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F413H-Discovery board</td>
+<td style="text-align: left;">MB1274 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F769I-DISCO board</td>
+<td style="text-align: left;">MB1225 B-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32G071RB Nucleo kit</td>
+<td style="text-align: left;">MB1360 B-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32G474RE Nucleo kit</td>
+<td style="text-align: left;">MB1367 B-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32H753ZI Nucleo kit</td>
+<td style="text-align: left;">MB1364 A-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L073RZ Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L152RE Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L432KC Nucleo kit</td>
+<td style="text-align: left;">MB1180 C-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L476RG Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L496G Discovery board</td>
+<td style="text-align: left;">MB1261 B-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V2.1.0 / 14-Decembre-2018</label>
+<div>
+<h2 id="main-changes-2">Main Changes</h2>
+<h3 id="maintenance-release">Maintenance release</h3>
+<p>Add support of <strong>B-L475E-IOT01A, 32L496GDISCOVERY, STM32F413H-Discovery, STM32F769I-Discovery,  NUCLEO-G071RB</strong> boards.</p>
+<p>Add support of mbed TLS cryptographic services (Open Source Crypto) for <strong>B-L475E-IOT01A and 32L496GDISCOVERY</strong> boards.</p>
+<h2 id="contents-2">Contents</h2>
+<table>
+<caption>Projects :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/B-L475E-IOT01A/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications/STSAFE_Provisioning</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0088">SLA0088</a></td>
+<td style="text-align: left;">Projects/32L496GDISCOVERY/Applications/2_Images_STSAFE/STSAFE_Provisioning</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-G071RB</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-G071RB/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L432KC/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L476RG/Applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F413H-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F413H-Discovery/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F769I-Discovery</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v2.1.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/STM32F769I-Discovery/Applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations-2">Known Limitations</h2>
+<p>Microsoft Windows has a <a href="https://docs.microsoft.com/fr-fr/windows/desktop/FileIO/naming-a-file#maxpath">limitation</a> whereby paths to files and directories can’t be longer than 256characters. Paths to files exceeding that limits cause tools (e.g. compilers, shell scripts) to fail reading from or writing to such files. As a workaround, it’s advised to use the subst.exe command from within a command prompt to set up a local drive out of an existing directory on the hard drive, such as:</p>
+<pre><code>C:\&gt; subst X:&lt;PATH_TO_CUBEFW&gt;\STM32CubeExpansion_SBSFU_Vx.y.z</code></pre>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.20.2 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24 + ST-Link</li>
+<li>System Workbench for STM32 (SW4STM32) toolchain V2.5 + ST-Link</li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and Boards</h2>
+<table>
+<caption>Supported Devices :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32F413xx, STM32F769xx, STM32G071xx, STM32L432xx,</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L475xx, STM32L476xx, STM32L496xx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Supported Boards :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A board</td>
+<td style="text-align: left;">MB1297 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32G071RB Nucleo kit</td>
+<td style="text-align: left;">MB1360 B-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32F413H-Discovery board</td>
+<td style="text-align: left;">MB1274 D-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32F769I-DISCO board</td>
+<td style="text-align: left;">MB1225 B-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L432KC Nucleo kit</td>
+<td style="text-align: left;">MB1180 C-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L476RG Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L496G Discovery board</td>
+<td style="text-align: left;">MB1261 B-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section2" aria-hidden="true"> <label for="collapse-section2" aria-hidden="true">V2.0.0 / 20-April-2018</label>
+<div>
+<h2 id="main-changes-3">Main Changes</h2>
+<h3 id="maintenance-release-1">Maintenance release</h3>
+<p>Add support of <strong>NUCLEO-L432KC</strong>.</p>
+<h2 id="contents-3">Contents</h2>
+<table>
+<caption>Projects :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Board</th>
+<th style="text-align: center;">Project category</th>
+<th style="text-align: center;">Version</th>
+<th style="text-align: center;">License</th>
+<th style="text-align: center;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">NUCLEO-L432KC</td>
+<td style="text-align: center;">Applications</td>
+<td style="text-align: center;">v2.0.0</td>
+<td style="text-align: center;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: center;">Projects/NUCLEO-L432KC/Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">NUCLEO-L476RG</td>
+<td style="text-align: center;">Applications</td>
+<td style="text-align: center;">v2.0.0</td>
+<td style="text-align: center;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: center;">Projects/NUCLEO-L476RG/Applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations-3">Known Limitations</h2>
+<p>Microsoft Windows has a <a href="https://docs.microsoft.com/fr-fr/windows/desktop/FileIO/naming-a-file#maxpath">limitation</a> whereby paths to files and directories can’t be longer than 256characters. Paths to files exceeding that limits cause tools (e.g. compilers, shell scripts) to fail reading from or writing to such files. As a workaround, it’s advised to use the subst.exe command from within a command prompt to set up a local drive out of an existing directory on the hard drive, such as:</p>
+<pre><code>C:\&gt; subst X:&lt;PATH_TO_CUBEFW&gt;\STM32CubeExpansion_SBSFU_Vx.y.z</code></pre>
+<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24 + ST-Link</li>
+<li>System Workbench for STM32 (SW4STM32) toolchain V2.4 + ST-Link</li>
+</ul>
+<h2 id="supported-devices-and-boards-1">Supported Devices and Boards</h2>
+<p>: Supported Devices : Name ——————————————————– STM32L432xx, STM32L476xx</p>
+<table>
+<caption>Supported Devices :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L432KC Nucleo kit</td>
+<td style="text-align: left;">MB1180 C-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L476RG Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-03</td>
+</tr>
+</tbody>
+</table>
+<p>: Supported Boards :</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">v1.0.0 / 01-December-2017</label>
+<div>
+<h2 id="main-changes-4">Main Changes</h2>
+<h3 id="first-release">First release</h3>
+<table>
+<caption>Projects :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">v1.0.0</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
+<td style="text-align: left;">Projects/NUCLEO-L476RG/Applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations-4">Known Limitations</h2>
+<p>Microsoft Windows has a <a href="https://docs.microsoft.com/fr-fr/windows/desktop/FileIO/naming-a-file#maxpath">limitation</a> whereby paths to files and directories can’t be longer than 256characters. Paths to files exceeding that limits cause tools (e.g. compilers, shell scripts) to fail reading from or writing to such files. As a workaround, it’s advised to use the subst.exe command from within a command prompt to set up a local drive out of an existing directory on the hard drive, such as:</p>
+<pre><code>C:\&gt; subst X:&lt;PATH_TO_CUBEFW&gt;\STM32CubeExpansion_SBSFU_Vx.y.z</code></pre>
+<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24 + ST-Link</li>
+<li>System Workbench for STM32 (SW4STM32) toolchain V2.1 + ST-Link</li>
+</ul>
+<h2 id="supported-devices-and-boards-2">Supported Devices and Boards</h2>
+<table>
+<caption>Supported Devices :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L476xx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Supported Boards :</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L476RG Nucleo kit</td>
+<td style="text-align: left;">MB1136 C-03</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on STM32 Microcontrollers, visit: [<a href="http://www.st.com/STM32">www.st.com/stm32</a>]</p>
+<em>This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.</em>
+</footer>
+</footer>
+</body>
+</html>

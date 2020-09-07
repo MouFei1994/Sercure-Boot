@@ -1,0 +1,3 @@
+ AREA SE_CORE_Bin, CODE, READONLY
+ INCBIN ../../2_Images_SECoreBin/MDK-ARM/STM32WB55RG_Nucleo\Exe/SECoreBin.bin
+ END

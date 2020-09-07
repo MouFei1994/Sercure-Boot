@@ -1,0 +1,5 @@
+prebuild.sh : started
+../../../Binary/ECCKEY.txt
+prepareimage with python script
+python C:/git/sbsfu_master/Firmware/Middlewares/ST/STM32_Secure_Engine/Utilities/KeysAndImages/prepareimage.py
+SECBOOT_ECCDSA_WITH_AES128_CTR_SHA256 selected

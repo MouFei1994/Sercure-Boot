@@ -1,0 +1,16 @@
+block size =16
+number of segment :4
+0x80805f8
+0x8084e58
+0x8084f10
+number of segment :6
+0x80001f8
+0x8004e14
+0x8008804
+0x8010390
+0x80104e8
+Merging
+SBSFU Base = 0x8000000
+Writing header = 0x8080000
+APPLI Base = 0x8080400
+Writing to ..\..\..\Binary\SBSFU_UserApp.bin 544528

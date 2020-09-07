@@ -1,0 +1,3 @@
+#<SYMDEFS># ARM Linker, 5060528: Last Updated: Mon Jun 04 15:00:13 2018
+0x08008671 T SE_APP_GetActiveFwInfo
+0x080086b1 T SE_APP_SVC_Handler

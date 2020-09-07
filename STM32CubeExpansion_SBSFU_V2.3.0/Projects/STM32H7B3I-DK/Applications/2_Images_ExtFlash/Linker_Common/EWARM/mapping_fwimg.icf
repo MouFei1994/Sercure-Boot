@@ -1,0 +1,22 @@
+/*###ICF### Set of symbols used in SE and SB_SFU projects ****/
+
+/* Slots Regions must be aligned on sector size */
+
+/* Swap sector in external memory : 128 kbytes */  
+define exported symbol  __ICFEDIT_region_SWAP_start__ = 0x90800000; 
+define exported symbol  __ICFEDIT_region_SWAP_end__   = 0x9081FFFF;
+
+/* Slot 0 in external memory : 4 Mbytes */
+define exported symbol  __ICFEDIT_region_SLOT_0_header__= 0x08020000;
+define exported symbol  __ICFEDIT_bank1_secure_end__   = 0x080201FF; /* Secure User Memory: end of the protected area */      
+define exported symbol  __ICFEDIT_region_SLOT_0_start__= 0x90000000; 
+define exported symbol  __ICFEDIT_region_SLOT_0_end__  = 0x903FFFFF;
+
+/* Slot 1 in external memory : 4 Mbytes */
+define exported symbol  __ICFEDIT_region_SLOT_1_start__= 0x90400000;        
+define exported symbol  __ICFEDIT_region_SLOT_1_end__  = 0x907FFFFF;
+
+/* firmware images regions definition */
+define region SWAP_region   = mem:[from __ICFEDIT_region_SWAP_start__ to __ICFEDIT_region_SWAP_end__];
+define region SLOT_0_region = mem:[from __ICFEDIT_region_SLOT_0_start__ to __ICFEDIT_region_SLOT_0_end__];
+define region SLOT_1_region = mem:[from __ICFEDIT_region_SLOT_1_start__ to __ICFEDIT_region_SLOT_1_end__];

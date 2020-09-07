@@ -1,0 +1,16 @@
+block size =16
+No FW signing leaf cert
+No leaf cert
+No FW signing leaf cert
+No leaf cert
+number of segment :2
+0x801377c
+number of segment :4
+0x800013c
+0x80053b4
+0x800b390
+Merging
+SBSFU Base = 0x8000000
+Writing header = 0x8010000
+APPLI Base = 0x8010200
+Writing to .\\..\\Binary\\\\SBSFU_UserApp.bin 79760
