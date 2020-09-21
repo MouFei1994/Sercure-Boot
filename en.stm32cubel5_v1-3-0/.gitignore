@@ -2,6 +2,7 @@ RTE
 DebugConfig
 Listings
 Objects
+.vscode
 EventRecorderStub.scvd
 .config.old
 .sconsign.dblite
