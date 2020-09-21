@@ -1,0 +1,41 @@
+import os
+import osconfig
+from build_tools import *
+
+pwd     = PresentDir()
+LIBS    = []
+LIBPATH = []
+src     = Glob('src/*.c')
+CPPPATH = [pwd + '/inc']
+
+LIBPATH = [pwd + '/lib/bl']
+if IsDefined('ARCH_ARM_CORTEX_M0'):
+   LIBS += ['arm_cortexM0_AbupFotaBL']
+
+elif IsDefined('ARCH_ARM_CORTEX_M0plus'):
+     LIBS += ['arm_cortexM0plus_AbupFotaBL']
+
+elif IsDefined('ARCH_ARM_CORTEX_M3'):
+     LIBS += ['arm_cortexM3_AbupFotaBL']
+
+elif IsDefined('ARCH_ARM_CORTEX_M4'):
+     LIBS += ['arm_cortexM4_AbupFotaBL']
+     
+elif IsDefined('ARCH_ARM_CORTEX_M7'):
+     LIBS += ['arm_cortexM7_AbupFotaBL']
+
+
+group = AddCodeGroup('components/abup', src, depend = ['FOTA_USING_ABUP'], CPPPATH = CPPPATH)
+
+group += AddCodeGroup('components/abuplib', [], depend = ['FOTA_USING_ABUP'], LIBS=LIBS, LIBPATH = LIBPATH)
+
+Return('group')
+
+
+
+
+
+
+
+
+

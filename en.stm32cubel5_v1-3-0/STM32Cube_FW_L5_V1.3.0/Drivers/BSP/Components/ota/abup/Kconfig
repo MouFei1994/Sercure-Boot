@@ -1,0 +1,108 @@
+menuconfig FOTA_USING_ABUP
+    bool "USING ABUP FOTA"
+    default n
+    if FOTA_USING_ABUP
+        choice
+        prompt "The supported network protocol"
+        default ABUP_NETWORKING_MODE_COAP
+
+        config ABUP_NETWORKING_MODE_COAP
+            bool "Coap"
+        config ABUP_NETWORKING_MODE_HTTP
+            bool "Http"
+        endchoice
+        config ABUP_DEFAULT_NETWORK_PROTOCOL
+            int
+            default 1  if ABUP_NETWORKING_MODE_COAP
+            default 2  if ABUP_NETWORKING_MODE_HTTP
+            
+        choice
+        prompt "The supported algorithm"
+        default ABUP_ALGORITHM_LUSUN
+
+        config ABUP_ALGORITHM_LUSUN
+            bool "Lusun"
+        config ABUP_ALGORITHM_WOSUN
+            bool "Wosun low"
+        config ABUP_ALGORITHM_WOSUN_HIGH
+            bool "Wosun high"
+        endchoice
+        config ABUP_FOTA_ALGORITHM
+            int
+            default 0 if ABUP_ALGORITHM_LUSUN
+            default 1 if ABUP_ALGORITHM_WOSUN
+            default 2 if ABUP_ALGORITHM_WOSUN_HIGH
+            
+        config ADUPS_FOTA_WOSUN_VERSION
+            string "Wosun version"
+            default "IOT4.0_R42641"
+        config ADUPS_FOTA_LUSUN_VERSION
+            string "Lun version"
+            default "IOT5.0_LUSUN11_R50426"
+
+#        config ABUP_SECTOR_MAX_NUM
+#            hex "SECTOR_MAX_NUM"
+#            default 0x00000100
+        
+        if !(OS_USING_FAL)
+            config ABUP_ONEOS_APP
+                string "The name of ONEOS_APP"
+                default "app"
+            config ABUP_ONEOS_FLASH
+                string "The name of ONEOS_FLASH"
+                default "download"
+            config ABUP_DEFAULT_SEGMENT_SIZE_INDEX
+                int "DEFAULT_SEGMENT_SIZE_INDEX"
+                range 0 5
+                default 3
+            config ABUP_FLASH_BASE_ADDR
+                hex "FLASH_BASE_ADDR"
+                default 0x08000000
+            config ABUP_BL_SIZE
+                hex "BL_SIZE"
+                default 0x00018000
+            config ABUP_FLASH_APP_ADDR
+                hex "FLASH_APP_ADDR"
+                default 0x08020000
+            config ABUP_APP_SIZE
+                hex "APP_SIZE"
+                default 0x00040000
+            config ABUP_UPDATE_ADDR
+                hex "UPDATE_ADDR"
+                default 0x08060000
+            config ABUP_UPDATE_SIZE
+                hex "UPDATE_SIZE"
+                default 0x00020000
+        endif
+
+        config ADUPS_FOTA_SERVICE_OEM
+            string "FOTA_SERVICE_OEM"
+            default "OneOS_team"
+        config ADUPS_FOTA_SERVICE_MODEL
+            string "FOTA_SERVICE_MODEL"
+            default "L475RE"
+        config ADUPS_FOTA_SERVICE_PRODUCT_ID
+            string "FOTA_SERVICE_PRODUCT_ID"
+            default "1591858627"
+        config ADUPS_FOTA_SERVICE_PRODUCT_SEC
+            string "FOTA_SERVICE_PRODUCT_SEC"
+            default "a209777903994bb784afe12fbdeefe43"
+        config ADUPS_FOTA_SERVICE_DEVICE_TYPE
+            string "FOTA_SERVICE_DEVICE_TYPE"
+            default "box"
+        config ADUPS_FOTA_SERVICE_PLATFORM
+            string "FOTA_SERVICE_PLATFORM"
+            default "test_chips"
+        config ABUP_FIRMWARE_VERSION
+            string "FIRMWARE_VERSION"
+            default "1.0"
+        config ADUPS_FOTA_APP_VERSION
+            string "FOTA_APP_VERSION"
+            default "ADUPS_V4.0"
+        config ADUPS_FOTA_RTT_VERSION
+            string "FOTA_RTT_VERSION"
+            default "RTT_V1.0"
+    endif
+
+
+

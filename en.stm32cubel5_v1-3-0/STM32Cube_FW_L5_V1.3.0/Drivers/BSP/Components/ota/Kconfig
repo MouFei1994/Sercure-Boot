@@ -1,0 +1,4 @@
+menu "OTA"
+    source "$OS_ROOT/components/ota/abup/Kconfig"
+    #source "$OS_ROOT/components/ota/iap_uart/Kconfig"
+endmenu
