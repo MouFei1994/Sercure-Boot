@@ -38,15 +38,6 @@
 #define ABUP_UPDATE_SIZE          OS_DL_PART_SIZE
 #endif
 
-
-
-#ifdef FLASH_PAGE_SIZE
-#define ABUP_DEFAULT_SECTOR_SIZE  FLASH_PAGE_SIZE
-#else
-#define ABUP_DEFAULT_SECTOR_SIZE  (0x400)
-#endif
-
-
 #define ABUP_SECTOR_MAX_NUM (MCU_ROM_SIZE/ABUP_DEFAULT_SECTOR_SIZE)
 
 
@@ -67,8 +58,8 @@
 /* 0 means lusun algorithm, 1 means low-level wosun algorithm, low-level wosun for ram less than 512k, 2 means advanced
  * wosun algorithm, advanced wosun for ram greater than 512k
  */
-#define ABUP_FOTA_ALGORITHM 1
-#define STM32L4_NUCLEO
+#define ABUP_FOTA_ALGORITHM 0
+#define STM32L5xx
 /* if set debug, open debug mode, else user mode */
 #if (ABUP_BOOTLOADER_DEBUG == 1) || (ABUP_APP_DEBUG == 1)
 #ifndef ABUP_DEBUG_MODE
@@ -85,7 +76,11 @@
 #endif
 /* Config device */
 /* Sector size */
+#ifdef FLASH_PAGE_SIZE
+#define ABUP_DEFAULT_SECTOR_SIZE  FLASH_PAGE_SIZE
+#else
 #define ABUP_DEFAULT_SECTOR_SIZE 0x00000800
+#endif
 /* Flash base address */
 #define ABUP_FLASH_BASE_ADDR 0x08000000
 /* Bootloader size */

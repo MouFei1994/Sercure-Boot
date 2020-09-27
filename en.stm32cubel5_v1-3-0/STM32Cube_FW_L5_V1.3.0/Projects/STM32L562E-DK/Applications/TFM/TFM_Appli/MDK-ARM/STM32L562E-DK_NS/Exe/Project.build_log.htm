@@ -1,0 +1,161 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: mou fei, CMIOT, LIC=QF82M-XUL15-AREXW-QAEU2-31TV7-LCPR3
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  D:\Program Files (x86)\Keil\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.14
+Assembler:       Armasm.exe V6.14
+Linker/Locator:  ArmLink.exe V6.14
+Library Manager: ArmAr.exe V6.14
+Hex Converter:   FromElf.exe V6.14
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM\Project_ns.uvprojx
+Project File Date:  09/14/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.14', folder: 'D:\Program Files (x86)\Keil\ARM\ARMCLANG\Bin'
+Rebuild target 'STM32L562E-DK_TFM_NonSecure'
+assembling startup_stm32l562xx_ns.s...
+compiling fw_update_app.c...
+compiling test_protections.c...
+compiling system_stm32l5xx.c...
+compiling stm32l5xx_it.c...
+compiling main.c...
+compiling mpu_armv8m_drv.c...
+compiling common.c...
+compiling flash_if.c...
+compiling com.c...
+compiling tfm_ns_lock.c...
+compiling ymodem.c...
+compiling tfm_app.c...
+compiling stm32l5xx_hal.c...
+compiling stm32l5xx_hal_crc.c...
+compiling stm32l5xx_hal_cortex.c...
+compiling stm32l5xx_hal_exti.c...
+compiling stm32l5xx_hal_pwr.c...
+compiling stm32l5xx_hal_dma_ex.c...
+compiling stm32l5xx_hal_dma.c...
+compiling stm32l5xx_hal_gpio.c...
+compiling stm32l5xx_hal_flash.c...
+compiling stm32l5xx_hal_crc_ex.c...
+compiling stm32l5xx_hal_flash_ex.c...
+compiling stm32l5xx_hal_pwr_ex.c...
+compiling stm32l5xx_hal_rcc.c...
+compiling tfm_initial_attestation_ipc_api.c...
+compiling tfm_psa_ns_api.c...
+compiling tfm_crypto_ipc_api.c...
+compiling stm32l5xx_hal_uart_ex.c...
+compiling tfm_sst_ipc_api.c...
+compiling stm32l5xx_hal_rcc_ex.c...
+compiling tfm_its_ipc_api.c...
+compiling stm32l5xx_hal_uart.c...
+compiling UsefulBuf.c...
+compiling test_framework.c...
+compiling test_framework_helpers.c...
+compiling crypto_tests_common.c...
+linking...
+Program Size: Code=14060 RO-data=4560 RW-data=40 ZI-data=8436  
+After Build - User command #1: fromelf STM32L562E-DK_NS\Exe\Project.axf --bin --output=STM32L562E-DK_NS\Exe\Project.bin
+After Build - User command #2: postbuild.bat .  "1.0.0" "nonsecure"
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "projectdir=." 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "version="1.0.0"" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "signing=nonsecure" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "userAppBinary=.\..\Binary" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_ns_sign=.\..\Binary\tfm_ns_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_s_sign=.\..\Binary\tfm_s_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_s_enc_sign=.\..\Binary\tfm_s_enc_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_ns_enc_sign=.\..\Binary\tfm_ns_enc_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_enc_sign=.\..\Binary\tfm_enc_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_sign=.\..\Binary\tfm_sign.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm=.\..\Binary\tfm.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set image_ns_size=0x100000 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set image_s_size=0x24000 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set image_number=2 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set crypto_scheme=0 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set external_flash_enable=1 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set ns_code_start=0x90000400 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>pushd .\..\..\..\..\..\..\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot>set tfm_mcuboot_dir=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot>popd
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>pushd .\..\..\..\..\..\..\Middlewares\Third_Party\mcuboot 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot>set mcuboot_dir=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot>popd
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if not exist ".\..\Binary" (mkdir ".\..\Binary" ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>IF "nonsecure" == "nonsecure" (goto :start; ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>goto exe: 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>echo Postbuild with windows executable 
+Postbuild with windows executable
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "imgtool=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "python=" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if exist D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe (goto postbuild ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "0" == "0" (set "mode=rsa2048" ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "0" == "1" (set "mode=rsa3072" ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "0" == "2" (set "mode=ec256" ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "rsa2048" == "rsa2048" (
+set "key_s=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048.pem"  
+ set "key_ns=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem"  
+ set "key_enc_pub=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem" 
+) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "rsa2048" == "rsa3072" (
+set "key_s=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-3072.pem"  
+ set "key_ns=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-3072_1.pem"  
+ set "key_enc_pub=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem" 
+) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "rsa2048" == "ec256" (
+set "key_s=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-ec-p256.pem"  
+ set "key_ns=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-ec-p256_1.pem"  
+ set "key_enc_pub=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-ec256-pub.pem" 
+) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_s=.\STM32L562E-DK_S\Exe\Project.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>set "tfm_ns=.\STM32L562E-DK_NS\Exe\Project.bin" 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>echo nonsecure rsa2048  image_number=2  1>.\output.txt 2>&1 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>if "2" == "2" (goto continue ) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>IF "nonsecure" == "nonsecure" (
+echo "nonsecure signing"  1>>.\output.txt 2>&1  
+ IF "1" == "1" (set "command_sign=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -E D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem -o 0x90000400 -e little -S 0x100000 -H 0x400 --pad-header  -v "1.0.0" -s auto --align 8 .\STM32L562E-DK_NS\Exe\Project.bin .\..\Binary\tfm_ns_sign.bin >> .\output.txt 2>&1" )  ELSE (set "command_sign=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -e little -S 0x100000 -H 0x400 --pad-header  -v "1.0.0" -s auto --align 8...
+ goto :docommand_sign 
+) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -E D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem -o 0x90000400 -e little -S 0x100000 -H 0x400 --pad-header  -v "1.0.0" -s auto --align 8 .\STM32L562E-DK_NS\Exe\Project.bin .\..\Binary\tfm_ns_sign.bin  1>>.\output.txt 2>&1 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>IF 0 NEQ 0 goto :error 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>IF "nonsecure" == "nonsecure" (
+echo "non secure encrypting"  1>>.\output.txt 2>&1  
+ IF "1" == "1" (set "command_enc=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -E D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem -o 0x90000400 -e little -S 0x100000 -H 0x400 --pad-header  -v "1.0.0"  -s auto --align 8 .\STM32L562E-DK_NS\Exe\Project.bin .\..\Binary\tfm_ns_enc_sign.bin >> .\output.txt 2>&1" )  ELSE (set "command_enc=D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -E D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0...
+ goto :docommand_enc 
+) 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\mcuboot\scripts\dist\imgtool\imgtool.exe sign -k D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\root-rsa-2048_1.pem -E D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot\enc-rsa2048-pub.pem -o 0x90000400 -e little -S 0x100000 -H 0x400 --pad-header  -v "1.0.0"  -s auto --align 8 .\STM32L562E-DK_NS\Exe\Project.bin .\..\Binary\tfm_ns_enc_sign.bin  1>>.\output.txt 2>&1 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>IF 0 NEQ 0 goto :error_enc 
+D:\GitLib\Sercure-Boot\en.stm32cubel5_v1-3-0\STM32Cube_FW_L5_V1.3.0\Projects\STM32L562E-DK\Applications\TFM\TFM_Appli\MDK-ARM>exit 0 
+"STM32L562E-DK_NS\Exe\Project.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_STM32L562E-DK_TFM_NonSecure
+  D:\Program Files (x86)\Keil\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>

@@ -25,6 +25,7 @@
 #define __ABUP_HAL_H__
 
 #include "abup_stdlib.h"
+#include "flash_map.h"
 
 #if !defined(ABUP_BOOTLOADER)
 #if defined(ABUP_ONEOS)

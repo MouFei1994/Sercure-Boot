@@ -25,14 +25,14 @@
  */
 
 /* Flash layout configuration : begin */
-#define MCUBOOT_EXT_LOADER         /* Defined: Add external local loader application.
-                                               To enter it, press user button at reset.
-                                      Undefined: No external local loader application. */
+//       #define MCUBOOT_EXT_LOADER         /* Defined: Add external local loader application.
+//                                                    To enter it, press user button at reset.
+//                                            Undefined: No external local loader application. */
 
-#define TFM_EXTERNAL_FLASH_ENABLE  /* Defined: External OSPI flash used for S image secondary slot,
-                                               and NS image primary and secondary slots.
-                                      Undefined: External OSPI flash not used. */
-/* Flash layout configuration : end */
+//#define TFM_EXTERNAL_FLASH_ENABLE  /* Defined: External OSPI flash used for S image secondary slot,
+//                                               and NS image primary and secondary slots.
+//                                      Undefined: External OSPI flash not used. */
+///* Flash layout configuration : end */
 
 #define MCUBOOT_IMAGE_NUMBER 2     /* 2: Two separated images for S and NS application binaries. */
 
@@ -74,7 +74,7 @@
  */
 /* area for HUK and anti roll back counter */
 #define FLASH_BL2_NVCNT_AREA_OFFSET     (0x0000)
-#define FLASH_BL2_NVCNT_AREA_SIZE       (0x1000)
+#define FLASH_BL2_NVCNT_AREA_SIZE       (0x1000)    /* 4 KB */
 /* scratch area */
 #define FLASH_AREA_SCRATCH_OFFSET       (FLASH_BL2_NVCNT_AREA_OFFSET+FLASH_BL2_NVCNT_AREA_SIZE)
 #define FLASH_AREA_SCRATCH_SIZE         (0x0000) /* Not used in MCUBOOT_OVERWRITE_ONLY mode */
@@ -88,13 +88,13 @@
 /* personal area */
 #define FLASH_AREA_PERSO_OFFSET         (FLASH_AREA_SCRATCH_OFFSET+FLASH_AREA_SCRATCH_SIZE)
 #endif /* TFM_EXTERNAL_FLASH_ENABLE */
-#define FLASH_AREA_PERSO_SIZE           (0x900)
+#define FLASH_AREA_PERSO_SIZE           (0x1000)    /* 4 KB */
 /* area for BL2 code protected by hdp */
 #define FLASH_AREA_BL2_OFFSET           (FLASH_AREA_PERSO_OFFSET+FLASH_AREA_PERSO_SIZE)
 #if  defined(TFM_EXTERNAL_FLASH_ENABLE)
 #define FLASH_AREA_BL2_SIZE             (0xef00)
 #else
-#define FLASH_AREA_BL2_SIZE             (0xcf00)
+#define FLASH_AREA_BL2_SIZE             (0x20000)    /* 128 KB for BL2*/
 #endif /* TFM_EXTERNAL_FLASH_ENABLE */
 /* HDP area end at this address */
 #define FLASH_BL2_HDP_END               (FLASH_AREA_BL2_OFFSET+FLASH_AREA_BL2_SIZE-1)
@@ -106,25 +106,25 @@
 #define FLASH_AREA_BL2_NOHDP_SIZE       (0x800)
 
 /* Non Volatile Counters definitions */
-#define FLASH_NV_COUNTER_AREA_SIZE      (0x1000)
+#define FLASH_NV_COUNTER_AREA_SIZE      (0x1000)    /* 4 KB */
 #define FLASH_NV_COUNTERS_AREA_OFFSET   (FLASH_AREA_BL2_NOHDP_OFFSET+FLASH_AREA_BL2_NOHDP_SIZE)
 
 /* Secure Storage (SST) Service definitions */
-#define FLASH_SST_AREA_SIZE             (0x2000)
+#define FLASH_SST_AREA_SIZE             (0x2000)    /* 8 KB */
 #define FLASH_SST_AREA_OFFSET           (FLASH_NV_COUNTERS_AREA_OFFSET+FLASH_NV_COUNTER_AREA_SIZE)
 
 /* Internal Trusted Storage (ITS) Service definitions */
 #define FLASH_ITS_AREA_OFFSET           (FLASH_SST_AREA_OFFSET + FLASH_SST_AREA_SIZE)
 #define FLASH_ITS_AREA_SIZE             (0x2000)   /* 8 KB */
 
-#define FLASH_S_PARTITION_SIZE          (0x24000) /* 144 KB for S partition */
+#define FLASH_S_PARTITION_SIZE          (0x29000) /* 164 KB for S partition */
 #if  defined(TFM_EXTERNAL_FLASH_ENABLE)
 #define FLASH_NS_PARTITION_SIZE         (0x100000) /* 1 MB for NS partition */
 #else
 #ifdef MCUBOOT_EXT_LOADER
 #define FLASH_NS_PARTITION_SIZE         (0xe000) /* 56 KB for NS partition */
 #else
-#define FLASH_NS_PARTITION_SIZE         (0x10000) /* 64 KB for NS partition */
+#define FLASH_NS_PARTITION_SIZE         (0x20000) /* 128 KB for NS partition */
 #endif
 #endif /* TFM_EXTERNAL_FLASH_ENABLE */
 #define FLASH_PARTITION_SIZE            (FLASH_S_PARTITION_SIZE+FLASH_NS_PARTITION_SIZE)
@@ -147,12 +147,12 @@
 #define FLASH_AREA_2_ID                 (FLASH_AREA_1_ID + 1)
 #define FLASH_AREA_2_DEVICE_ID          (FLASH_AREA_1_DEVICE_ID)
 #define FLASH_AREA_2_OFFSET             (FLASH_AREA_1_OFFSET + FLASH_AREA_1_SIZE)
-#define FLASH_AREA_2_SIZE               (FLASH_S_PARTITION_SIZE)
+#define FLASH_AREA_2_SIZE               (0x8000)    /* 32 KB */
 /* Non-secure image secondary slot */
 #define FLASH_AREA_3_ID                 (FLASH_AREA_2_ID + 1)
 #define FLASH_AREA_3_DEVICE_ID          (FLASH_AREA_2_DEVICE_ID)
 #define FLASH_AREA_3_OFFSET             (FLASH_AREA_2_OFFSET + FLASH_AREA_2_SIZE)
-#define FLASH_AREA_3_SIZE               (FLASH_NS_PARTITION_SIZE)
+#define FLASH_AREA_3_SIZE               (0x8000)    /* 32 KB */
 
 #define FLASH_AREA_SCRATCH_ID           (FLASH_AREA_3_ID + 1)
 #define FLASH_AREA_SCRATCH_DEVICE_ID    (FLASH_DEVICE_ID)

@@ -25,7 +25,7 @@
 #include "abup_hal_uart.h"
 
 #if defined(ABUP_ONEOS)
-#include "fal.h"
+//#include "fal.h"
 #else
 #include "abup_hal_flash.h"
 #endif

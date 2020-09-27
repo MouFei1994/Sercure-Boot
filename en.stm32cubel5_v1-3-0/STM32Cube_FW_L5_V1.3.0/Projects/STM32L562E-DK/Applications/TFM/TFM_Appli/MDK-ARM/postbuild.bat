@@ -17,12 +17,12 @@ set "tfm=%userAppBinary%\tfm.bin"
 
 ::field updated with tfm_sbsfu_boot postbuild
 
-set image_ns_size=0x100000
-set image_s_size=0x24000
+set image_ns_size=0x20000
+set image_s_size=0x29000
 set image_number=2
 set crypto_scheme=0
-set external_flash_enable=1
-set ns_code_start=0x90000400
+set external_flash_enable=0
+set ns_code_start=0x0
 :: end of updated field
 
 pushd %projectdir%\..\..\..\..\..\..\Middlewares\Third_Party\trustedfirmware\bl2\ext\mcuboot

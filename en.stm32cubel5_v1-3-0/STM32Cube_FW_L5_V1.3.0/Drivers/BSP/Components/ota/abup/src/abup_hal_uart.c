@@ -24,6 +24,7 @@
 #include "abup_typedef.h"
 #include "abup_stdlib.h"
 #include "abup_hal_uart.h"
+#include <mcuboot_config/mcuboot_logging.h>
 
 #if defined(ABUP_ONEOS)
 abup_char uart_debug = 1;
@@ -62,7 +63,7 @@ abup_uint16 abup_get_AbupDebugRxBuf_len(void)
 
 abup_weak void abup_printf(abup_char* data, abup_int len)
 {
-    printf("%s\r\n",data);
+    MCUBOOT_LOG_INF("%s\r\n",data);
 }
 
 abup_weak void abup_moudule_printf(abup_char* data, abup_int len)

@@ -29,6 +29,8 @@
 #include "boot_record.h"
 #include "security_cnt.h"
 #include "boot_hal.h"
+#include "abup_bl_main.h"
+
 #if MCUBOOT_LOG_LEVEL > MCUBOOT_LOG_LEVEL_OFF
 #include "uart_stdout.h"
 #endif
@@ -135,6 +137,7 @@ static void do_boot(struct boot_rsp *rsp)
     uintptr_t flash_base;
     int rc;
 
+    AbupProcedure();
     /* The beginning of the image is the ARM vector table, containing
      * the initial stack pointer address and the reset vector
      * consecutively. Manually set the stack pointer and jump into the

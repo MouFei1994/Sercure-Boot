@@ -96,6 +96,10 @@
 #include "stm32746g_discovery.h"
 #endif
 
+#ifdef STM32L5xx
+#include "stm32l5xx.h"
+#endif
+
 #define ABUP_FLASH_BASE_END 0x08080000
 extern abup_int abup_erase_sector(abup_uint32 addr, abup_uint size);
 extern abup_int abup_flash_write(abup_uint32 addr, abup_uint8* buf, abup_uint size);

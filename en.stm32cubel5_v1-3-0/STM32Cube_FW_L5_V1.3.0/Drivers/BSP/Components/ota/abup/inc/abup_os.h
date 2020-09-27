@@ -24,7 +24,7 @@
 #ifndef __ABUP_OS_H__
 #define __ABUP_OS_H__
 
-#define ABUP_ONEOS 1
+//#define ABUP_ONEOS 1
 
 /* if defined os, use os's config */
 #if defined(ABUP_ONEOS)

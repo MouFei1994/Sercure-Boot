@@ -53,12 +53,12 @@
 #define SPECIAL (1 << 5) /* 0x */
 #define LARGE   (1 << 6) /* use 'ABCDEF' instead of 'abcdef' */
 
-#define INT_MAX   ((abup_int)(~0U >> 1))
-#define INT_MIN   (-INT_MAX - 1)
-#define UINT_MAX  (~0U)
-#define LONG_MAX  ((abup_int)(~0UL >> 1))
-#define LONG_MIN  (-LONG_MAX - 1)
-#define ULONG_MAX (~0UL)
+//#define INT_MAX   ((abup_int)(~0U >> 1))
+//#define INT_MIN   (-INT_MAX - 1)
+//#define UINT_MAX  (~0U)
+//#define LONG_MAX  ((abup_int)(~0UL >> 1))
+//#define LONG_MIN  (-LONG_MAX - 1)
+//#define ULONG_MAX (~0UL)
 
 #define ABUP_U  0x01 /* upper */
 #define ABUP_L  0x02 /* lower */

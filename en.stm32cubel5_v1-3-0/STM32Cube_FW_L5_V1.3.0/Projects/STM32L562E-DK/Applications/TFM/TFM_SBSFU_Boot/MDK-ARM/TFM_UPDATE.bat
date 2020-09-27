@@ -3,13 +3,13 @@ set stm32programmercli="C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeP
 set external_loader="C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\ExternalLoader\MX25LM51245G_STM32L562E-DK.stldr"
 set connect_no_reset=-c port=SWD mode=UR -el %external_loader%
 set connect=-c port=SWD mode=UR --hardRst -el %external_loader%
-set slot0=0xc017000
-set slot1=0x90000000
-set slot2=0x90100000
-set slot3=0x90124000
-set boot=0xc002000
-set loader=0xc07a000
-set cfg_loader=1
+set slot0=0xc027800
+set slot1=0xc050800
+set slot2=0xc070800
+set slot3=0xc078800
+set boot=0xc001000
+set loader=0x0
+set cfg_loader=0
 set image_number=2
 if  "%image_number%" == "2" (
 echo "Write TFM_Appli Secure"
